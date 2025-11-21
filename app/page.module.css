@@ -1,0 +1,617 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.videoContainer {
+  width: 360px;
+  height: 640px;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+  text-align: center;
+  padding: 40px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #d4a574 0%, #f4e4d4 50%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #a0a0a0;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.playButton {
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #8b6f47 0%, #d4a574 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+}
+
+.playButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(212, 165, 116, 0.5);
+}
+
+.resetButton {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.resetButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Scene 1: Stressed Face */
+.scene1 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.stressedFace {
+  width: 280px;
+  height: 380px;
+  background: radial-gradient(ellipse at center, #4a3428 0%, #2d1f18 60%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.faceOverlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.eyes {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 60px;
+  position: absolute;
+  top: 35%;
+  width: 100%;
+}
+
+.eye {
+  width: 35px;
+  height: 40px;
+  background: linear-gradient(180deg, #1a0f0a 0%, #0a0505 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.eye::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  background: #2a1810;
+  border-radius: 50%;
+}
+
+.tensionLines {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(139, 111, 71, 0.1) 20%,
+    transparent 40%,
+    rgba(139, 111, 71, 0.1) 60%,
+    transparent 80%
+  );
+}
+
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* Scene 2: Therapy Room */
+.scene2 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3d2817 0%, #2d1810 50%, #1a0f0a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.therapyRoom {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.goldenLight {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 120%;
+  background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.3) 0%, transparent 60%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.ayurvedicDecor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.plant {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  background: linear-gradient(180deg, #2d5016 0%, #1a3010 100%);
+  border-radius: 40% 40% 0 0;
+  bottom: 0;
+}
+
+.plant:nth-child(1) {
+  left: 20px;
+}
+
+.plant:nth-child(2) {
+  right: 20px;
+}
+
+.plant::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: linear-gradient(135deg, #3d6020 0%, #2d5016 100%);
+  border-radius: 50% 50% 40% 40%;
+  top: -20px;
+  left: -10px;
+}
+
+.plant::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: linear-gradient(135deg, #3d6020 0%, #2d5016 100%);
+  border-radius: 50% 50% 40% 40%;
+  top: -20px;
+  right: -10px;
+}
+
+.candles {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+}
+
+.candle {
+  width: 20px;
+  height: 60px;
+  background: linear-gradient(180deg, #f4e4d4 0%, #d4a574 100%);
+  border-radius: 2px 2px 0 0;
+  position: relative;
+}
+
+.candle::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(255, 200, 100, 0.9) 0%, rgba(255, 150, 50, 0.4) 50%, transparent 100%);
+  border-radius: 50% 50% 0 0;
+  filter: blur(2px);
+  animation: flicker 2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+/* Scene 3: Shirodhara */
+.scene3 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d1810 0%, #1a0f0a 50%, #0a0505 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.shirodhara {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.woman {
+  position: relative;
+  z-index: 2;
+}
+
+.womansHead {
+  width: 200px;
+  height: 260px;
+  background: radial-gradient(ellipse at center, #5a4030 0%, #3d2817 60%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  position: relative;
+}
+
+.closedEyes {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 40px;
+}
+
+.closedEyes::before,
+.closedEyes::after {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 4px;
+  background: linear-gradient(90deg, #2d1810 0%, #1a0f0a 100%);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.closedEyes::before {
+  left: 0;
+}
+
+.closedEyes::after {
+  right: 0;
+}
+
+.oilStream {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 300px;
+  z-index: 3;
+}
+
+.oilDrop {
+  position: absolute;
+  width: 6px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(212, 165, 116, 0.8) 0%, rgba(180, 130, 70, 0.6) 100%);
+  border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(0.5px);
+  box-shadow: 0 2px 8px rgba(212, 165, 116, 0.4);
+}
+
+.herbalGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(139, 111, 71, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Scene 4: Massage */
+.scene4 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3d2817 0%, #2d1810 50%, #1a0f0a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.massage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  width: 220px;
+  height: 180px;
+  position: relative;
+}
+
+.scalp {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #5a4030 0%, #3d2817 70%);
+  border-radius: 50%;
+  position: relative;
+}
+
+.hand {
+  position: absolute;
+  width: 70px;
+  height: 90px;
+  background: linear-gradient(135deg, #6a4f38 0%, #4a3428 100%);
+  border-radius: 40% 40% 30% 30% / 50% 50% 40% 40%;
+  top: 20%;
+  left: 40%;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.hand::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(135deg, #6a4f38 0%, #5a4030 100%);
+  border-radius: 50%;
+  bottom: -10px;
+  left: 10px;
+}
+
+.herbalDecor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.herbalParticle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(139, 195, 74, 0.8) 0%, rgba(104, 159, 56, 0.4) 100%);
+  border-radius: 50% 0 50% 0;
+  left: 50%;
+  filter: blur(1px);
+}
+
+/* Scene 5: Relaxed Face */
+.scene5 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3d2817 0%, #5a4030 50%, #6a5040 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.relaxedFace {
+  width: 280px;
+  height: 380px;
+  background: radial-gradient(ellipse at center, #7a5f48 0%, #5a4030 60%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glowingFace {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.peacefulEyes {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 50px;
+}
+
+.peacefulEyes::before,
+.peacefulEyes::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background: radial-gradient(ellipse at center, #2d1810 0%, #1a0f0a 100%);
+  border-radius: 50% 50% 45% 45%;
+  box-shadow: inset 0 -2px 3px rgba(255, 255, 255, 0.1);
+}
+
+.peacefulEyes::before {
+  left: 5px;
+}
+
+.peacefulEyes::after {
+  right: 5px;
+}
+
+.smile {
+  position: absolute;
+  bottom: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  border: 3px solid #3d2817;
+  border-top: none;
+  border-radius: 0 0 80px 80px;
+}
+
+.wellnessGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(ellipse at center, rgba(139, 195, 74, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.floatingParticle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, rgba(139, 195, 74, 0.9) 0%, rgba(104, 159, 56, 0.5) 100%);
+  border-radius: 50% 0 50% 0;
+  left: 50%;
+  filter: blur(1px);
+  box-shadow: 0 0 10px rgba(139, 195, 74, 0.5);
+}
+
+.logo {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4a574 0%, #f4e4d4 50%, #d4a574 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.logo p {
+  font-size: 12px;
+  color: #a0a0a0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Scene Text */
+.sceneText {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 500;
+  color: #f4e4d4;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  padding: 0 20px;
+  line-height: 1.4;
+}
+
+/* Progress Bar */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #d4a574 0%, #f4e4d4 50%, #d4a574 100%);
+  z-index: 100;
+  box-shadow: 0 -2px 10px rgba(212, 165, 116, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .videoContainer {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+}
